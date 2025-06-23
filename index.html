@@ -11,6 +11,10 @@
                     <a href="assets/profile.jpg" target="_blank">
   <img src="assets/profile.jpg" alt="Koushik's Profile Picture" style="border-radius: 50%; max-width: 120px;">
 </a>
+                    <button id="darkModeToggle" style="position: fixed; top: 1rem; right: 1rem; z-index: 1000;">
+  🌓 Toggle Dark Mode
+</button>
+
 
 
   <h1>Koushik M</h1>
@@ -99,7 +103,24 @@
 </section>
 
 
-            <script src = script.js></script>
+           <script>
+  const toggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+ 
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
         </body>
     </head>
 </html>
